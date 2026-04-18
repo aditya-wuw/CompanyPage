@@ -1,0 +1,14 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+
+export const prerender = false;
+const { id } = Astro.params;
+
+if (!id){
+    Astro.redirect("/404");
+}
+---
+
+<Layout>
+  <div class="bg-blue-400">Showing preview of : {id}</div>
+</Layout>

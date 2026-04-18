@@ -1,0 +1,10 @@
+---
+const NavPath: Array<string> = ["abouts", "products", "preview"];
+---
+
+<div class="bg-pink-500 flex gap-5 justify-center ">
+  this is a nav bar
+  <div class="bg-green-300 flex gap-5">
+    {NavPath.map((i) => <div>{i}</div>)}
+  </div>
+</div>
