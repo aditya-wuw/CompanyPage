@@ -1,0 +1,14 @@
+---
+import Nav from "../Nav.astro";
+---
+
+<div class="flex justify-center items-center w-full h-full overflow-hidden">
+  <div
+    class="relative z-10 border border-gray-100/10 bg-violet-500/5 backdrop-blur-[7px]  w-[90%] h-[95%] rounded-md"
+  >
+    <Nav />
+    <div class="mt-20">
+      <slot />
+    </div>
+  </div>
+</div>

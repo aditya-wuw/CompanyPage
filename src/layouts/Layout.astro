@@ -1,7 +1,8 @@
 ---
 import Background from "../components/bg/Background.astro";
-import Nav from "../components/Nav.astro";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
+import Box from "../components/bg/Box.astro";
 ---
 
 <!doctype html>
@@ -13,19 +14,18 @@ import "../styles/global.css";
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Null Team's</title>
+    <ClientRouter />
   </head>
-  <body id="ani-bg" class="bg-black">
-    <Nav />
-    <slot />
+  <body class="bg-transparent">
     <Background />
+    <Box><slot/></Box>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </body>
-
-  <style>
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
 </html>

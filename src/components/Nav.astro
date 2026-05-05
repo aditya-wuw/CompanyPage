@@ -1,10 +1,13 @@
 ---
-const NavPath: Array<string> = ["abouts", "products", "preview"];
+const NavPath: Array<string> = ["Home","abouts", "products"];
 ---
 
-<div class="bg-pink-500 flex gap-5 justify-center ">
+<div class="bg-pink-500 flex gap-8 justify-center items-center absolute right-10 top-5">
   this is a nav bar
   <div class="bg-green-300 flex gap-5">
-    {NavPath.map((i) => <div>{i}</div>)}
+    {NavPath.map((i) => <a href={i === "Home" ? "/" : `/${i}`}>{i}</a>)}
+  </div>
+  <div class="w-15 h-15 rounded-full bg-red-600 overflow-hidden">
+    profile
   </div>
 </div>
