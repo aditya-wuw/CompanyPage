@@ -1,0 +1,32 @@
+---
+import { fade } from "astro:transitions";
+import Background from "../../bg/Background.astro";
+import TPButton from "../../Buttons/TPButton.astro";
+import Box from "../../bg/Box.astro";
+import { siteContent } from "../../../data/content_en";
+const Button1Link: string = "abouts";
+---
+
+<div class="flex justify-center">
+  <div
+    class="w-[90%] bg-blue-800/10 md:h-130 sm:h-80 rounded-2xl overflow-hidden relative"
+  >
+    <Background />
+    <div
+      class="flex flex-col justify-center items-start h-full relative z-1 md:px-10 px-5 py-10"
+    >
+      <h1
+        transition:name="hero_ti"
+        class="text-white md:text-4xl text-2xl font-light drop-shadow-xl drop-shadow-black"
+      >
+        {siteContent.en.hero.title}
+      </h1>
+      <p transition:name="hero_dec" class="my-4 text-white md:text-xl text-sm">
+        {siteContent.en.hero.subtitle}
+      </p>
+      <div class="flex gap-2">
+        <TPButton label="learn more" link={Button1Link} />
+      </div>
+    </div>
+  </div>
+</div>
