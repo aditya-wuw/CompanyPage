@@ -3,6 +3,7 @@ import Background from "../components/bg/Background.astro";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import Box from "../components/bg/Box.astro";
+import BGPattern from "../components/bg/BGPattern.astro";
 ---
 
 <!doctype html>
@@ -16,8 +17,9 @@ import Box from "../components/bg/Box.astro";
     <title>Null Team's</title>
     <ClientRouter />
   </head>
-  <body class="bg-black">
-    <Box><slot/></Box>
+  <body>
+    <BGPattern />
+    <Box><slot /></Box>
     <style>
       html,
       body {

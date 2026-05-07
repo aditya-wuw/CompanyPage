@@ -16,12 +16,13 @@ const Navbar = () => {
   return (
     <>
       <div className="flex md:gap-8 gap-5 justify-between items-center max-md:text-xs p-3 px-5">
-        <div>
-          <div className="w-10 h-10 rounded-full bg-transparent overflow-hidden drop-shadow-2xl drop-shadow-violet-400/40 hover:drop-shadow-violet-400 transition duration-200 ease-in-out">
+        <div className="w-5 h-5 rounded-full bg-white overflow-hidden drop-shadow-2xl drop-shadow-violet-400/40 hover:drop-shadow-violet-400 transition duration-200 ease-in-out">
+          <div>
             <img
-              src="/logo/Logo.png"
+              src="/logo/NyaTeam_BG.webp"
               alt="logo"
-              className="relative scale-150 top-1"
+              width={50}
+              className="object-center"
             />
           </div>
         </div>
@@ -29,7 +30,7 @@ const Navbar = () => {
           {NavPath.map((i, index) => (
             <a
               key={index}
-              className={` border-blue-500/50 ${Current == i ? "border-b hover:border-none" : "hover:border-b"}`}
+              className={` border-violet-500/50 ${Current == i ? "border-b hover:border-none" : "hover:border-b"}`}
               href={i === "Home" ? "/" : `/${i}`}
             >
               <h1 className="drop-shadow-2xl drop-shadow-blue-300">{i}</h1>
@@ -44,7 +45,7 @@ const Navbar = () => {
             onChange={(e) => SetCurrentLang(e.target.value)}
           >
             {lang.map((i, index) => (
-              <option className="text-black" value={i} key={index}>
+              <option className="bg-slate-800" value={i} key={index}>
                 {i}
               </option>
             ))}
