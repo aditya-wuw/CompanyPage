@@ -1,14 +1,26 @@
 ---
 import CompanyUpdates from "../components/core/Home/CompanyUpdates.astro";
 import Hero from "../components/core/Home/Hero.astro";
+import Para from "../components/Para.astro";
+import { siteContent } from "../data/lang/content_en";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <main class="mt-5">
+  <main class="mt-2 h-full overflow-y-auto">
     <!-- hero -->
     <Hero />
     <!-- latest updates -->
     <CompanyUpdates />
+    <!-- Motto -->
+    <div class="mt-10 flex justify-center">
+      <div class="w-[90%] flex gap-5 max-md:flex-col">
+        {
+          siteContent.en.cards.map((i) => (
+            <Para title={i.title} tagline={i.tagline} content={i.content} />
+          ))
+        }
+      </div>
+    </div>
   </main>
 </Layout>

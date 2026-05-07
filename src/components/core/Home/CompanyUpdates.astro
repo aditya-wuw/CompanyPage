@@ -1,31 +1,20 @@
 ---
-import Pannel from "../../bg/Pannel.astro";
+import SmallCard from "../../SmallCard.astro";
+import { LuRotate3D } from "react-icons/lu";
 ---
 
-<div
-  class="mt-5 md:mx-5 mx-3 h-50 p-3 rounded flex md:justify-between max-md:flex-col-reverse"
->
-  <div class="mx-15 relative">
-    <div
-      class="absolute z-3 w-120 h-50 text-white overflow-hidden drop-shadow-2xl drop-shadow-black rounded-md"
-    >
-      <img src="gal.jpg" alt="" class="object-cover" />
+<div class="mt-5 flex justify-center">
+  <div class="flex max-md:flex-col-reverse gap-3 w-[90%]">
+    <div>
+      <SmallCard image="gal.jpg" alt="info" />
     </div>
     <div
-      class="absolute z-2 hover:left-100 left-8 w-120 h-50 text-white overflow-hidden drop-shadow-2xl drop-shadow-black rounded-md"
+      class="xl:text-5xl md:text-3xl text-2xl text-white flex flex-col items-end justify-end w-full lg:pb-5"
     >
-      <img src="mkway.jpg" alt="" class="object-cover" />
+      <h1>Yo ho!</h1>
+      <p class="flex md:gap-5 gap-2 items-center">
+        Check What's New <LuRotate3D />
+      </p>
     </div>
-    <div
-      class="absolute z-1 hover:left-100 left-15 w-120 h-50 text-white overflow-hidden drop-shadow-2xl drop-shadow-black rounded-md"
-    >
-      <img src="mkway.jpg" alt="" class="object-cover" />
-    </div>
-  </div>
-  <div
-    class="lg:text-6xl text-3xl text-white mt-10 md:mx-12 flex flex-col justify-end lg:items-end"
-  >
-    <h1>Yo ho!</h1>
-    <p>Check What's New</p>
   </div>
 </div>

@@ -9,3 +9,12 @@ body {
   font-weight: 200;
   font-style: normal;
 }
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  width: 3px;
+  background-color: rgba(136, 120, 255, 0.384);
+  border-radius: 5px;
+}

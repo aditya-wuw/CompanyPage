@@ -3,15 +3,16 @@ import Foot from "../Foot.astro";
 import Navbar from "../React/Navbar.tsx";
 ---
 
-<div class="flex justify-center items-center w-full h-full overflow-hidden">
+<div
+  class="max-w-7xl mx-auto lg:px-8 flex justify-center items-center w-full h-full overflow-hidden"
+>
   <div
     class="relative z-10 border border-gray-100/10 bg-gray-100/5 backdrop-blur-[6px] md:w-[98%] w-[95%] h-[96%] rounded-md"
   >
     <Navbar client:load />
-    <div>
+    <div class="h-[84%]">
       <slot />
     </div>
-
     <Foot />
   </div>
 </div>
