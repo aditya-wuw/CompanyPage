@@ -1,0 +1,42 @@
+---
+import AssetsBanner from "./AssetsBanner.astro";
+
+interface Props {
+  products: GameAssetPack[];
+}
+interface GameAssetPack {
+  id: string;
+  name: string;
+  preview: string;
+  banner: string;
+  description: string;
+  category: string[];
+  is3D: boolean;
+  tags: string[];
+  anims: string[];
+}
+const { products } = Astro.props;
+---
+
+<div class="p-5">
+  List of available products
+  <div class="flex flex-col">
+    {
+      products && products.length > 0 ? (
+        products.map((i) => (
+          <AssetsBanner
+            name={i.name}
+            banner={i.banner}
+            category={i.category}
+            description={i.description}
+            is3D={i.is3D}
+            preview={i.preview}
+            tags={i.tags}
+          />
+        ))
+      ) : (
+        <div>no assets listed</div>
+      )
+    }
+  </div>
+</div>

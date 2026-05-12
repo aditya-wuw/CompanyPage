@@ -1,0 +1,30 @@
+---
+import { fade } from "astro:transitions";
+import Layout from "../../layouts/Layout.astro";
+import BackBTN from "../../components/Buttons/BackBTN.astro";
+
+export const prerender = false;
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/error/404");
+}
+---
+
+<Layout>
+  <main transition:animate={fade({ duration: "0.8s" })} class="mx-5">
+    <BackBTN />
+    <div class="mt-5">
+      <div class="text-white p-3 text-xl">Showing preview of : {id}</div>
+    </div>
+    <!-- game -->
+    <div class="w-full md:h-164 h-54 rounded-2xl">
+      <iframe
+        src=`${import.meta.env.PUBLIC_ASSETS}/${ id }`
+        title="Godot Game"
+        allow="cross-origin-isolated"
+        class="w-full h-full rounded-2xl"
+        scrolling="no"></iframe>
+    </div>
+  </main>
+</Layout>

@@ -4,6 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import Box from "../components/bg/Box.astro";
 import BGPattern from "../components/bg/BGPattern.astro";
+import BGPatternBlur from "../components/bg/BGPatternBlur.astro";
 ---
 
 <!doctype html>
@@ -17,8 +18,10 @@ import BGPattern from "../components/bg/BGPattern.astro";
     <title>Null Team's</title>
     <ClientRouter />
   </head>
-  <body>
-    <BGPattern />
+  <body class="bg-black">
+    <div class="bg-black/50 blur-3xl rounded-full w-full h-full absolute z-1">
+    </div>
+    <BGPatternBlur />
     <Box><slot /></Box>
     <style>
       html,

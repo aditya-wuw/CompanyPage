@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import mdx from "@astrojs/mdx";
@@ -11,6 +11,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
+  server: {
+    headers: {
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Embedder-Policy": "require-corp",
+    },
+  },
   integrations: [mdx(), react()],
 });

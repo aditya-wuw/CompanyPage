@@ -4,6 +4,7 @@ import Background from "../../bg/Background.astro";
 import TPButton from "../../Buttons/TPButton.astro";
 import Box from "../../bg/Box.astro";
 import { siteContent } from "../../../data/lang/content_en";
+import BGPattern from "../../bg/BGPattern.astro";
 const Button1Link: string = "abouts";
 ---
 
@@ -11,7 +12,8 @@ const Button1Link: string = "abouts";
   <div
     class="w-[90%] bg-blue-800/10 md:h-130 sm:h-80 rounded-2xl overflow-hidden relative"
   >
-    <Background />
+    <BGPattern />
+    <div class="bg-black/50 blur-3xl rounded-full w-[70%] h-[60%] absolute z-1 top-20"></div>
     <div
       class="flex flex-col justify-center items-start h-full relative z-1 md:px-10 px-5 py-10"
     >

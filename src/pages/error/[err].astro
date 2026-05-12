@@ -1,0 +1,59 @@
+---
+import BackBTN from "../../components/Buttons/BackBTN.astro";
+import TPButton from "../../components/Buttons/TPButton.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export const prerender = false;
+const { err } = Astro.params;
+
+const errorMap: Record<string, { msg: string; ascii: string; ahH: string }> = {
+  "404": {
+    msg: "The asset you're looking for has vanished into the void.",
+    ascii: "┬──┬ ノ( ゜-゜ノ)",
+    ahH: "aaaaaaahh",
+  },
+  "500": {
+    msg: "Our servers are having a bit of a meltdown. We're on it!",
+    ascii: "(╯°□°）╯︵ ┻━┻",
+    ahH: "aaaaaaaaaaaaaaaaaaaaaaaaaahh",
+  },
+  "403": {
+    msg: "Access denied. You aren't supposed to be in this restricted zone.",
+    ascii: "X(╥﹏╥)X",
+    ahH: "aahh",
+  },
+  default: {
+    msg: "An unexpected glitch occurred in the matrix.",
+    ascii: "¯\_(ツ)_/¯",
+    ahH: "aaaahh ?",
+  },
+};
+
+const errorData = errorMap[err as string] || errorMap["default"];
+---
+
+<Layout title={`Error ${err}`}>
+  <main class="min-h-screen flex items-start justify-center pt-20 mx-3">
+    <div
+      class="max-w-lg w-full bg-red-600/10 border border-red-500/10 p-8 rounded-xl text-center backdrop-blur-sm"
+    >
+      <!-- ASCII Emoji -->
+      <div class="md:text-3xl text-2xl mt-3 font-mono text-red-400 animate-bounce">
+        {errorData.ascii}
+      </div>
+
+      <!-- Descriptive Message -->
+      <h1 class="text-white text-xl mt-6 font-medium">
+        Something went wrong {errorData.ahH}...
+      </h1>
+      <p class="text-zinc-400 mt-2 leading-relaxed">
+        {errorData.msg}
+      </p>
+
+      <!-- Action Button -->
+      <div class="mt-8">
+        <BackBTN />
+      </div>
+    </div>
+  </main>
+</Layout>

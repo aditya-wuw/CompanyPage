@@ -3,14 +3,14 @@ import lang from "../../data/language.json";
 import { IoLanguage } from "react-icons/io5";
 
 const Navbar = () => {
-  const NavPath: Array<string> = ["Home", "abouts", "products"];
+  const NavPath: Array<string> = ["Home", "abouts", "Assets"];
   const [Current, SetCurrent] = useState<string>("");
   const [CurrentLang, SetCurrentLang] = useState<string>("");
 
   useEffect(() => {
     const path = window.location.pathname.split("/")[1];
     SetCurrent(path !== "" ? path : "Home");
-    console.log(CurrentLang);
+    // console.log(CurrentLang);
   }, [CurrentLang]);
 
   return (
