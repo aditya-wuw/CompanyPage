@@ -22,8 +22,5 @@ export default defineConfig({
   },
 
   integrations: [mdx(), react()],
-  image: {
-    service: { entrypoint: "astro/assets/services/noop" }, // Forces Astro to handle images, not Netlify
-  },
   adapter: netlify(),
 });
