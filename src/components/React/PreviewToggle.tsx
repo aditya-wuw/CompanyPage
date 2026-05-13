@@ -46,7 +46,7 @@ const PreviewToggle = ({ id }: Props) => {
             {PrevDetails?.name}
           </div>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 px-2">
           <a
             href={PrevDetails?.itech_store}
             target="_blank"
@@ -84,7 +84,7 @@ const PreviewToggle = ({ id }: Props) => {
       </div>
 
       <div>
-        <div className="md:h-170 max-[400px]:h-110 h-150 overflow-y-auto">
+        <div className="md:h-170 max-[400px]:h-110 h-150 overflow-y-auto p-2">
           {showPreview ? (
             <div className="w-full md:h-164 h-54 rounded-2xl">
               <iframe

@@ -46,7 +46,7 @@ export const PreviewDetails = ({ details }: Props) => {
   }, []);
 
   return (
-    <div className="text-white leading-relaxed">
+    <div className="text-white leading-relaxed mt-5">
       <p>{details.more_description}</p>
       {details.anims.length > 0 && (
         <div>
