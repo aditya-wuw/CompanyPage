@@ -60,7 +60,7 @@ export const PreviewDetails = ({ details }: Props) => {
               <GoDotFill />
               Base Animations
             </h1>
-            <div className="pt-5 grid grid-cols-3 gap-2 w-full select-text">
+            <div className="pt-5 grid md:grid-cols-3 grid-cols-1 gap-2 w-full select-text">
               {BaseAnims &&
                 BaseAnims.map((i, index) => (
                   <div className="p-2 bg-black/30 text-white " key={index}>
@@ -72,7 +72,7 @@ export const PreviewDetails = ({ details }: Props) => {
               <GoDotFill />
               Pro Animations
             </h1>
-            <div className="pt-5 grid grid-cols-3 gap-2 w-full select-text">
+            <div className="pt-5 grid md:grid-cols-3 grid-cols-1 gap-2 w-full select-text">
               {ProAnims &&
                 ProAnims.map((i, index) => (
                   <div className="p-2 bg-black/30 text-white " key={index}>

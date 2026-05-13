@@ -42,18 +42,20 @@ const PreviewToggle = ({ id }: Props) => {
     <div className="mt-2 select-none">
       <div className="flex justify-between gap-2 h-10 mb-2">
         <div className="flex items-center pb-2 mt-2">
-          <div className="text-white text-2xl">{PrevDetails?.name}</div>
+          <div className="text-white md:text-2xl text-xs">
+            {PrevDetails?.name}
+          </div>
         </div>
         <div className="flex gap-3">
           <a
             href={PrevDetails?.itech_store}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white"
+            className="flex items-center gap-3 text-white text-xl max-sm:hidden"
           >
             Get it on
             <img
-              className="bg-white w-20 p-1 rounded-xl"
+              className="bg-white w-20 p-3 rounded-xl"
               alt="itech"
               src="https://static.itch.io/images/logo-black-new.svg"
             />
@@ -82,7 +84,7 @@ const PreviewToggle = ({ id }: Props) => {
       </div>
 
       <div>
-        <div className="h-170 overflow-y-auto">
+        <div className="md:h-170 max-[400px]:h-110 h-150 overflow-y-auto">
           {showPreview ? (
             <div className="w-full md:h-164 h-54 rounded-2xl">
               <iframe
