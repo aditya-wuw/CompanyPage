@@ -1,12 +1,23 @@
 ---
+import TPButton from "../../components/Buttons/TPButton.astro";
 import ContactCard from "../../components/ContactCard.astro";
 import About from "../../components/core/Abouts/About.astro";
+import TechStack from "../../components/React/TechStack";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
   <About />
-  <div class="flex justify-center">
-    <ContactCard />
+  <div class="flex flex-col gap-5 md:px-10 px-8">
+    <h1 class="md:text-2xl text-xl text-white mt-15 max-[400px]:mt-5">Tools we use</h1>
+    <div class="flex justify-between">
+      <TechStack />
+      <div>
+        <TPButton label="Check Assets" link="Assets" />
+      </div>
+    </div>
+    <div class="flex justify-center md:h-60 h-30">
+      <ContactCard />
+    </div>
   </div>
 </Layout>

@@ -1,22 +1,17 @@
 ---
 export const prerender = false;
-import Assets from "../../components/Assets/Assets.astro";
+import AssetsWrapper from "../../components/Assets/AssetsWrapper.astro";
 import Layout from "../../layouts/Layout.astro";
-
-let products = [];
-
-try {
-  const response = await fetch(`${import.meta.env.PUBLIC_ASSETS}/info`, {
-    method: "GET",
-  });
-  if (!response.ok) {
-    return Astro.redirect("/error/404");
-  }
-  products = await response.json();
-} catch (error) {
-  console.error("fetech error : ", error);
-  return Astro.redirect("/error/500");
-}
+import Loader from "../../components/Loader.astro";
 ---
 
-<Layout> <Assets products={products} /></Layout>
+<Layout>
+  <AssetsWrapper server:defer>
+    <div
+      slot="fallback"
+      class="w-full h-[70%] flex justify-center items-center"
+    >
+      <Loader />
+    </div>
+  </AssetsWrapper></Layout
+>

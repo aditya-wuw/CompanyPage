@@ -24,3 +24,5 @@ pnpm-debug.log*
 .idea/
 
 src/assets/gm/*
+# Local Netlify folder
+.netlify

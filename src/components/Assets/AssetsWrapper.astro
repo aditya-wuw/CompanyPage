@@ -1,0 +1,22 @@
+---
+export const prerender = false;
+import Assets from "./Assets.astro";
+
+let products = [];
+
+try {
+  const response = await fetch(`${import.meta.env.PUBLIC_ASSETS}/info`, {
+    method: "GET",
+  });
+  if (!response.ok) {
+    return Astro.redirect("/error/404");
+  }
+  products = await response.json();
+  console.log(products)
+} catch (error) {
+  console.error("fetech error : ", error);
+  return Astro.redirect("/error/500");
+}
+---
+
+<Assets products={products} />

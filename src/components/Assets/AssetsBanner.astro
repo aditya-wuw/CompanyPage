@@ -1,5 +1,4 @@
 ---
-import Image from "astro/components/Image.astro";
 import TPButton from "../Buttons/TPButton.astro";
 import { BsBadge3dFill } from "react-icons/bs";
 import { FaDraft2Digital } from "react-icons/fa6";
@@ -23,7 +22,7 @@ const { name, preview, banner, description, category, is3D, tags } =
   class="p-2 max-w-md w-full text-white md:h-100 h-80 border border-gray-100/10 bg-gray-100/5 hover:border-gray-100/15 hover:drop-shadow-white/10 drop-shadow-2xl backdrop-blur-md rounded-md hover: transition duration-200 ease-in-out"
 >
   <div class="w-full h-[40%]">
-    <Image
+    <img
       width={100}
       height={100}
       src=`${import.meta.env.PUBLIC_ASSETS}/${banner}`
