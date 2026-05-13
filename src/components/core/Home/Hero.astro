@@ -7,25 +7,58 @@ const Button1Link: string = "abouts";
 
 <div class="flex justify-center">
   <div
-    class="w-[90%] bg-blue-800/10 md:h-130 sm:h-80 rounded-2xl overflow-hidden relative"
+    class="w-[90%] bg-blue-800/10 md:h-100 sm:h-85 rounded-2xl overflow-hidden relative isolate"
   >
     <BGPattern />
-    <div class="bg-black/50 blur-3xl rounded-full w-[70%] h-[60%] absolute z-1 top-20"></div>
     <div
-      class="flex flex-col justify-center items-start h-full relative z-1 md:px-10 px-5 py-10"
+      class="bg-black/50 blur-3xl rounded-full w-[70%] h-[60%] absolute z-1 top-20"
     >
-      <h1
-        transition:name="hero_ti"
-        class="text-white md:text-4xl text-2xl font-light drop-shadow-xl drop-shadow-black"
-      >
-        {siteContent.en.hero.title}
-      </h1>
-      <p transition:name="hero_dec" class="my-4 text-white md:text-xl text-sm">
-        {siteContent.en.hero.subtitle}
-      </p>
+    </div>
+    <div
+      class="flex flex-col justify-center items-start h-full relative z-1 md:px-10 px-5 py-10 backface-hidden"
+    >
+      <span transition:animate="none">
+        <h1
+          class="text-white md:text-4xl text-2xl font-light drop-shadow-xl drop-shadow-black in-view-container opacity-0"
+        >
+          {siteContent.en.hero.title}
+        </h1>
+        <p class="my-4 text-white md:text-xl text-sm in-view-container opacity-0">
+          {siteContent.en.hero.subtitle}
+        </p>
+      </span>
       <div class="flex gap-2">
         <TPButton label="learn more" link={Button1Link} />
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  // Wrap in page-load listener if using View Transitions
+  document.addEventListener("astro:page-load", () => {
+    const containers = document.querySelectorAll(".in-view-container");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // When it enters the view
+            entry.target.classList.add("opacity-100");
+            entry.target.classList.remove("opacity-0");
+          } else {
+            // When it leaves the view (Hide it)
+            entry.target.classList.add("opacity-0");
+            entry.target.classList.remove("opacity-100");
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: "0px",
+      },
+    );
+
+    containers.forEach((c) => observer.observe(c));
+  });
+</script>

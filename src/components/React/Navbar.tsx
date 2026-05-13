@@ -26,11 +26,11 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div className="flex gap-5 text-white p-3 rounded-xl md:px-10 lg:ml-10">
+        <div className="flex gap-5 text-white p-3 rounded-xl md:px-10 lg:ml-10 relative z-100">
           {NavPath.map((i, index) => (
             <a
               key={index}
-              className={` border-violet-500/50 ${Current == i ? "border-b hover:border-none" : "hover:border-b"}`}
+              className={` border-violet-500/50 ${Current == i ? "border-b hover:border-transparent" : "hover:border-b"}`}
               href={i === "Home" ? "/" : `/${i}`}
             >
               <h1 className="drop-shadow-2xl drop-shadow-blue-300">{i}</h1>

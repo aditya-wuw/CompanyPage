@@ -1,38 +1,49 @@
 ---
+import Image from "astro/components/Image.astro";
 import TPButton from "../Buttons/TPButton.astro";
 import { BsBadge3dFill } from "react-icons/bs";
 import { FaDraft2Digital } from "react-icons/fa6";
 import { IoIosPricetag } from "react-icons/io";
 
 interface Props {
+  prod: GameAssetPack;
+}
+
+interface GameAssetPack {
+  id: string;
   name: string;
   preview: string;
   banner: string;
+  itech_store: string;
+  fab_store: string;
+  unity_store: string;
   description: string;
+  more_description: string;
   category: string[];
   is3D: boolean;
   tags: string[];
+  anims: string[];
 }
 
-const { name, preview, banner, description, category, is3D, tags } =
-  Astro.props;
+const { prod } = Astro.props;
 ---
 
 <div
-  class="p-2 max-w-md w-full text-white md:h-100 h-80 border border-gray-100/10 bg-gray-100/5 hover:border-gray-100/15 hover:drop-shadow-white/10 drop-shadow-2xl backdrop-blur-md rounded-md hover: transition duration-200 ease-in-out"
+  data-product={JSON.stringify(prod)}
+  class="asset-card p-2 max-w-md w-full text-white md:h-100 h-80 border border-gray-100/10 bg-gray-100/5 hover:border-gray-100/15 hover:drop-shadow-white/10 drop-shadow-2xl backdrop-blur-md rounded-md hover: transition duration-200 ease-in-out"
 >
-  <div class="w-full h-[40%]">
-    <img
+  <div class="w-full h-[40%] bg-black/20">
+    <Image
       width={100}
       height={100}
-      src=`${import.meta.env.PUBLIC_ASSETS}/${banner}`
+      src=`${import.meta.env.PUBLIC_ASSETS}/${prod.banner}`
       alt="banner"
       class="object-cover aspect-video h-full w-full rounded-md"
     />
   </div>
   <div class="w-full md:h-[50%] h-[48%] pt-4 flex gap-2.5 flex-col">
-    <h1 class="md:text-xl text-md font-medium">{name}</h1>
-    <p class="md:text-md text-xs">{description}</p>
+    <h1 class="md:text-xl text-md font-medium">{prod.name}</h1>
+    <p class="md:text-md text-xs">{prod.description}</p>
   </div>
   <!-- category -->
   <div class="absolute top-5 right-5">
@@ -40,7 +51,7 @@ const { name, preview, banner, description, category, is3D, tags } =
       class="flex items-center gap-2 md:text-sm text-xs drop-shadow-2xl drop-shadow-black"
     >
       {
-        is3D ? (
+        prod.is3D ? (
           <span class="md:text-3xl text-2xl">
             <BsBadge3dFill />
           </span>
@@ -51,24 +62,43 @@ const { name, preview, banner, description, category, is3D, tags } =
         )
       }
       <span class="bg-blue-600 text-white font-medium rounded-md p-1"
-        >{category}</span
+        >{prod.category}</span
       >
     </div>
   </div>
   <!-- bottom buttons & tags -->
-  <div class="w-full flex justify-between md:text-md text-xs">
+  <div
+    class="view-btn-container w-full flex justify-between md:text-md text-xs"
+    data-id={prod.preview}
+  >
     <!-- <div> -->
-    <TPButton label="View" link=`preview/${preview}` />
+    <TPButton label="View" link=`preview/${prod.preview}` />
     <!-- </div> -->
     <div class="flex gap-1.5 items-center">
       <h1 class="flex gap-0.5 items-center mr-2 md:text-[18px] text-md">
         <IoIosPricetag />Tags
       </h1>
       {
-        tags.map((i) => (
+        prod.tags.map((i) => (
           <span class=" p-1 rounded-md bg-white text-black"> {i}</span>
         ))
       }
     </div>
   </div>
 </div>
+
+<script>
+  // This code runs ONLY in the browser
+  const cards = document.querySelectorAll(".asset-card");
+
+  cards.forEach((card) => {
+    const btn = card.querySelector(".view-btn-container");
+    const productData = card.getAttribute("data-product");
+
+    btn?.addEventListener("click", () => {
+      if (productData) {
+        sessionStorage.setItem("view", productData);
+      }
+    });
+  });
+</script>
