@@ -27,7 +27,7 @@ const { products } = Astro.props;
   <div class="flex flex-col">
     {
       products && products.length > 0 ? (
-        products.map((i) => <AssetsBanner prod={i} />)
+        products.map((i: GameAssetPack) => <AssetsBanner prod={i} />)
       ) : (
         <div>no assets listed</div>
       )

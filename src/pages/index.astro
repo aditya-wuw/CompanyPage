@@ -1,4 +1,5 @@
 ---
+export const prerender = false;
 import ContactCard from "../components/ContactCard.astro";
 import CompanyUpdates from "../components/core/Home/CompanyUpdates.astro";
 import Hero from "../components/core/Home/Hero.astro";
@@ -23,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
         <CompanyUpdates />
       </div>
       <div class="flex justify-end px-15">
-        <ScrollDown client:load/>
+        <ScrollDown client:load />
       </div>
       <!-- Motto -->
       <div class="lg:mt-20 mt-15 flex justify-center">

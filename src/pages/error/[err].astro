@@ -1,6 +1,5 @@
 ---
 import BackBTN from "../../components/Buttons/BackBTN.astro";
-import TPButton from "../../components/Buttons/TPButton.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export const prerender = false;
@@ -15,7 +14,7 @@ const errorMap: Record<string, { msg: string; ascii: string; ahH: string }> = {
   "500": {
     msg: "Our servers are having a bit of a meltdown. We're on it!",
     ascii: "(╯°□°）╯︵ ┻━┻",
-    ahH: "aaaaaaaaaaaaaaaaaaaaaaaaaahh",
+    ahH: "aaaaaaaaaaaaaaaaaaaaahh",
   },
   "403": {
     msg: "Access denied. You aren't supposed to be in this restricted zone.",
@@ -38,7 +37,9 @@ const errorData = errorMap[err as string] || errorMap["default"];
       class="max-w-lg w-full bg-red-600/10 border border-red-500/10 p-8 rounded-xl text-center backdrop-blur-sm"
     >
       <!-- ASCII Emoji -->
-      <div class="md:text-3xl text-2xl mt-3 font-mono text-red-400 animate-bounce">
+      <div
+        class="md:text-3xl text-2xl mt-3 font-mono text-red-400 animate-bounce"
+      >
         {errorData.ascii}
       </div>
 

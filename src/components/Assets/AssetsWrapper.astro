@@ -1,22 +1,26 @@
 ---
-export const prerender = false;
 import Assets from "./Assets.astro";
-
-let products = [];
-
-try {
-  const response = await fetch(`${import.meta.env.PUBLIC_ASSETS}/info`, {
-    method: "GET",
-  });
-  if (!response.ok) {
-    return Astro.redirect("/error/404");
-  }
-  products = await response.json();
-  // console.log(products)
-} catch (error) {
-  console.error("fetech error : ", error);
-  return Astro.redirect("/error/500");
+interface Props {
+  products: GameAssetPack[];
 }
+interface GameAssetPack {
+  id: string;
+  name: string;
+  preview: string;
+  banner: string;
+  itech_store: string;
+  fab_store: string;
+  unity_store: string;
+  description: string;
+  more_description: string;
+  category: string[];
+  is3D: boolean;
+  tags: string[];
+  anims: string[];
+}
+const { products } = Astro.props;
 ---
 
-<Assets products={products} />
+<div>
+  <Assets products={products} />
+</div>

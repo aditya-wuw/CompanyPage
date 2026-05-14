@@ -1,17 +1,35 @@
 ---
 export const prerender = false;
-import AssetsWrapper from "../../components/Assets/AssetsWrapper.astro";
 import Layout from "../../layouts/Layout.astro";
 import Loader from "../../components/Loader.astro";
+import AssetsWrapper from "../../components/Assets/AssetsWrapper.astro";
+
+const apiPath = `${Astro.url.origin}/api/products`;
+let products = [];
+
+try {
+  const res = await fetch(apiPath);
+  if (res.status == 500) {
+    return Astro.redirect("error/500");
+  }
+  products = await res.json();
+} catch (e) {
+  console.error("Fetch failed:", e);
+  return Astro.redirect("/error/500", 302);
+}
+
+if (!products || products.length === 0) {
+  return Astro.redirect("/error/500", 302);
+}
 ---
 
 <Layout>
-  <AssetsWrapper server:defer>
+  <AssetsWrapper products={products} server:defer>
     <div
       slot="fallback"
       class="w-full h-[70%] flex justify-center items-center"
     >
       <Loader />
     </div>
-  </AssetsWrapper></Layout
->
+  </AssetsWrapper>
+</Layout>

@@ -1,0 +1,135 @@
+---
+export const prerender = false;
+import { siteContent } from "../../data/lang/content_en";
+import Layout from "../../layouts/Layout.astro";
+
+const LastUpdate = "May 14";
+const t = siteContent.en.privacy;
+const email = siteContent.en.contact.email;
+---
+
+<Layout title="Privacy Policy">
+  <main class="text-slate-200 py-10 px-6 sm:px-8 h-full overflow-y-auto">
+    <div class="max-w-3xl mx-auto">
+      <!-- Header -->
+      <header class="border-b border-white/20 pb-8 mb-12">
+        <h1 class="text-4xl font-extrabold text-white mb-4">Privacy Policy</h1>
+        <p class="text-slate-400 text-sm">
+          Last Updated: {LastUpdate}
+          {new Date().getFullYear()}
+        </p>
+      </header>
+
+      <!-- Content -->
+      <div class="space-y-10 leading-relaxed">
+        <section>
+          <p class="text-lg text-slate-300">{t.intro}</p>
+        </section>
+
+        {/* Section 1: Collection */}
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4 flex items-center">
+            <span class="bg-blue-500/10 text-blue-400 p-2 rounded-md mr-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M20 20L4 4m16 0L4 20"></path></svg
+              >
+            </span>
+            {t.sections[0].title}
+          </h2>
+          <p class="mb-4">{t.sections[0].description}</p>
+          <ul class="list-disc pl-6 space-y-2 text-slate-300">
+            {
+              t.sections[0].items &&
+                t.sections[0].items.map((item) => {
+                  const [label, ...rest] = item.split(":");
+                  const description = rest.join(":");
+                  return (
+                    <li>
+                      <strong class="text-white">{label}:</strong>
+                      {description}
+                    </li>
+                  );
+                })
+            }
+          </ul>
+        </section>
+
+        {/* Section 2: Purpose */}
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4 flex items-center">
+            <span class="bg-purple-500/10 text-purple-400 p-2 rounded-md mr-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg
+              >
+            </span>
+            {t.sections[1].title}
+          </h2>
+          <p set:html={t.sections[1].description} />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {
+              t.sections[1].cards &&
+                t.sections[1].cards.map((card) => (
+                  <div class="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-white mb-1 text-sm">
+                      {card.title}
+                    </h3>
+                    <p class="text-sm text-slate-400">{card.text}</p>
+                  </div>
+                ))
+            }
+          </div>
+        </section>
+
+        {/* Section 3: Retention */}
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">
+            {t.sections[2].title}
+          </h2>
+          <p class="text-slate-300">{t.sections[2].text}</p>
+        </section>
+
+        {/* Section 4: Cookies */}
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">
+            {t.sections[3].title}
+          </h2>
+          <p class="text-slate-300">{t.sections[3].text}</p>
+        </section>
+
+        {/* Contact Section */}
+        <section class="border-t border-slate-800 pt-10">
+          <h2 class="text-xl font-semibold text-white mb-4">
+            {t.contact.title}
+          </h2>
+          <p class="text-slate-300">
+            {t.contact.text}
+            <a
+              href={`mailto:${email}`}
+              class="text-blue-400 hover:underline ml-1"
+            >
+              {email}
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

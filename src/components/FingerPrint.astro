@@ -1,0 +1,17 @@
+<script>
+  import FingerprintJS from "@fingerprintjs/fingerprintjs";
+
+  async function setFingerprint() {
+    // Only run if the cookie doesn't exist yet
+    if (!document.cookie.includes("fp_id=")) {
+      const fp = await FingerprintJS.load();
+      const result = await fp.get();
+
+      // Store the visitorId in a cookie for 1 year
+      document.cookie = `fp_id=${result.visitorId}; Path=/; Max-Age=31536000; SameSite=Lax`;
+      document.cookie = `display_size=${window.innerWidth}x${window.innerHeight}; path=/; max-age=31536000`;
+    }
+  }
+
+  setFingerprint();
+</script>
