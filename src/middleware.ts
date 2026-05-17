@@ -1,4 +1,5 @@
 import { defineMiddleware } from "astro:middleware";
+import { supabase } from "../utils/supabase";
 
 interface RequestAnalytics {
   user_identifier: string;
@@ -15,7 +16,16 @@ interface RequestAnalytics {
 // `context` and `next` are automatically typed
 export const onRequest = defineMiddleware((context, next) => {
   const { request, url, cookies } = context;
+  const pathname = url.pathname;
+  const isStaticAsset =
+    pathname.includes(".") || // Skips files with extensions (.css, .js, .png)
+    pathname.startsWith("/_astro") || // Skips Astro's internal built scripts
+    pathname.startsWith("/favicon");
 
+  if (isStaticAsset) {
+    return next();
+  }
+  const SavedAnalytics = cookies.get("Analytics")?.value;
   const fpCookie = cookies.get("fp_id")?.value;
   const displaysize = cookies.get("display_size")?.value;
 
@@ -52,10 +62,28 @@ export const onRequest = defineMiddleware((context, next) => {
     path: lastPath,
   };
 
-  SaveAnalytics(Analytics);
+  if (!SavedAnalytics) {
+    SaveAnalytics(Analytics);
+    context.cookies.set("Analytics", "saved", {
+      path: "/",
+      maxAge: 60 * 60 * 24,
+      httpOnly: true,
+      secure: true,
+      sameSite: "lax",
+    });
+  }
+
   return next();
 });
 
-function SaveAnalytics(Analytics: RequestAnalytics) {
-  console.log(Analytics);
+async function SaveAnalytics(Analytics: RequestAnalytics) {
+  const { error } = await supabase.from("analytics").insert(Analytics).single();
+  if (error) {
+    console.error(
+      "Something went wrong while saving Analytics data :",
+      error.message,
+      "\nerror code :",
+      error.code,
+    );
+  }
 }
