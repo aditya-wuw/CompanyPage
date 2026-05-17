@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Loader from "../../components/Loader.astro";
 import AssetsWrapper from "../../components/Assets/AssetsWrapper.astro";
 
-const apiPath = `${Astro.url.origin}/api/products`;
+const apiPath = `${import.meta.env.PUBLIC_ASSETS}/info`;
 let products = [];
 
 try {

@@ -1,12 +1,28 @@
 ---
+import TPButton from "../../Buttons/TPButton.astro";
 import SmallCard from "../../SmallCard.astro";
 import { LuRotate3D } from "react-icons/lu";
+
+interface Props {
+  LatestAsset: LatestAsset;
+}
+
+interface LatestAsset {
+  banner: string;
+  name: string;
+}
+
+const { LatestAsset } = Astro.props;
+console.log(LatestAsset);
 ---
 
 <div class="mt-5 flex justify-center">
-  <div class="flex max-md:flex-col-reverse gap-3 w-[90%]">
+  <div class="flex max-md:flex-col-reverse gap-3 w-[90%] relative">
     <div>
-      <SmallCard image="gal.jpg" alt="info" />
+      <SmallCard
+        image={`${import.meta.env.PUBLIC_ASSETS}/${LatestAsset.banner}`}
+        alt="info"
+      />
     </div>
     <div
       class="xl:text-5xl md:text-3xl text-2xl text-white flex flex-col items-end justify-end w-full lg:pb-5"

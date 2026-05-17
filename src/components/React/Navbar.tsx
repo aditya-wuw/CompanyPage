@@ -26,7 +26,7 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div className="flex gap-5 text-white p-3 rounded-xl md:px-10 lg:ml-10 relative z-100">
+        <div className="flex gap-5 text-white p-3 rounded-xl md:px-10 lg:ml-5 relative z-100">
           {NavPath.map((i, index) => (
             <a
               key={index}
@@ -38,8 +38,8 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex gap-3 items-center">
-          <IoLanguage className="text-white" />
-          <select
+          {/* <IoLanguage className="text-white" /> */}
+          {/* <select
             className="text-white outline-0"
             defaultValue={lang[0]}
             onChange={(e) => SetCurrentLang(e.target.value)}
@@ -49,7 +49,7 @@ const Navbar = () => {
                 {i}
               </option>
             ))}
-          </select>
+          </select> */}
         </div>
       </div>
     </>

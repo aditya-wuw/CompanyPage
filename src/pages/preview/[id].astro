@@ -2,17 +2,52 @@
 import Layout from "../../layouts/Layout.astro";
 import BackBTN from "../../components/Buttons/BackBTN.astro";
 import PreviewToggle from "../../components/React/PreviewToggle";
+import Loader from "../../components/Loader.astro";
 export const prerender = false;
 const { id } = Astro.params;
 
+interface GameAssetPack {
+  id: string;
+  name: string;
+  preview: string;
+  banner: string;
+  itech_store: string;
+  fab_store: string;
+  unity_store: string;
+  description: string;
+  more_description: string;
+  category: string[];
+  is3D: boolean;
+  tags: string[];
+  anims: string[];
+}
+
+const apiPath = `${import.meta.env.PUBLIC_ASSETS}/info?id=${id}`;
+let asset: GameAssetPack;
+
 if (!id) {
   return Astro.redirect("/error/404");
+}
+
+try {
+  const res = await fetch(apiPath, { method: "GET" });
+  asset = await res.json();
+} catch (error) {
+  console.error(error);
+  return Astro.redirect("error/500");
 }
 ---
 
 <Layout>
   <main class="mx-5">
     <BackBTN />
-    <PreviewToggle id={id} client:load />
+    <PreviewToggle asset={asset} server:defer client:load>
+      <div
+        slot="fallback"
+        class="w-full h-[70%] flex justify-center items-center"
+      >
+        <Loader />
+      </div>
+    </PreviewToggle>
   </main>
 </Layout>

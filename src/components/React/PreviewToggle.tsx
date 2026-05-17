@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PreviewDetails } from "./PreviewDetails";
 
 interface Props {
-  id: string;
+  asset: GameAssetPack;
 }
 
 interface GameAssetPack {
@@ -21,7 +21,7 @@ interface GameAssetPack {
   anims: string[];
 }
 
-const PreviewToggle = ({ id }: Props) => {
+const PreviewToggle = ({ asset }: Props) => {
   // 1. Create a local state to track which view to show
   const [showPreview, setShowPreview] = useState(true);
   const [PrevDetails, setPreviewDetails] = useState<GameAssetPack>();
@@ -32,9 +32,10 @@ const PreviewToggle = ({ id }: Props) => {
   };
 
   useEffect(() => {
-    const ses = sessionStorage.getItem("view");
-    if (ses) {
-      setPreviewDetails(JSON.parse(ses));
+    if (asset) {
+      setPreviewDetails(asset);
+    } else {
+      window.location.href == "error/494";
     }
   }, []);
 
@@ -84,11 +85,11 @@ const PreviewToggle = ({ id }: Props) => {
       </div>
 
       <div>
-        <div className="md:h-170 max-[400px]:h-110 h-150 overflow-y-auto p-2">
+        <div>
           {showPreview ? (
-            <div className="w-full md:h-164 h-54 rounded-2xl">
+            <div className="w-full md:h-164 h-54 rounded-2xl overflow-y-auto">
               <iframe
-                src={`${import.meta.env.PUBLIC_ASSETS}/${id}`}
+                src={`${import.meta.env.PUBLIC_ASSETS}/${asset.id}`}
                 title="Godot Game"
                 allow="cross-origin-isolated"
                 className="w-full h-full rounded-2xl"
@@ -97,7 +98,9 @@ const PreviewToggle = ({ id }: Props) => {
               />
             </div>
           ) : (
-            <PreviewDetails details={PrevDetails} />
+            <div className="md:h-165 max-[400px]:h-110 h-150 overflow-y-auto p-2">
+              <PreviewDetails details={PrevDetails} />
+            </div>
           )}
         </div>
       </div>

@@ -7,6 +7,16 @@ import Para from "../components/Para.astro";
 import { siteContent } from "../data/lang/content_en";
 import ScrollDown from "../components/React/ScrollDown";
 import Layout from "../layouts/Layout.astro";
+
+const apiPath = `${import.meta.env.PUBLIC_ASSETS}/info?id=${0}`;
+let LatestAsset;
+
+try {
+  const res = await fetch(apiPath, { method: "GET" });
+  LatestAsset = await res.json();
+} catch (error) {
+  console.error(error);
+}
 ---
 
 <Layout>
@@ -21,9 +31,9 @@ import Layout from "../layouts/Layout.astro";
     <!-- latest updates -->
     <div class="lg:overflow-y-auto lg:h-80">
       <div class="lg:mt-20 mt-10">
-        <CompanyUpdates />
+        <CompanyUpdates LatestAsset={LatestAsset} />
       </div>
-      <div class="flex justify-end px-15">
+      <div class="flex justify-end px-15 max-md:hidden">
         <ScrollDown client:load />
       </div>
       <!-- Motto -->
