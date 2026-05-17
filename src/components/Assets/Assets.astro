@@ -22,9 +22,9 @@ interface GameAssetPack {
 const { products } = Astro.props;
 ---
 
-<div class="p-5">
-  List of available products
-  <div class="flex flex-col">
+<div class="p-5 text-white">
+  <span class="md:text-2xl text-xl"> List of available products </span>
+  <div class="flex flex-col mt-5">
     {
       products && products.length > 0 ? (
         products.map((i: GameAssetPack) => <AssetsBanner prod={i} />)
