@@ -18,10 +18,10 @@ const { LatestAsset } = Astro.props;
 <div class="mt-5 flex justify-center">
   <div class="flex max-md:flex-col-reverse gap-3 w-[90%] relative">
     <div>
-      <SmallCard
+      { LatestAsset && <SmallCard
         image={`${import.meta.env.PUBLIC_ASSETS}/${LatestAsset.banner}`}
         alt="info"
-      />
+      />}
     </div>
     <div
       class="xl:text-5xl md:text-3xl text-2xl text-white flex flex-col items-end justify-end w-full lg:pb-5"

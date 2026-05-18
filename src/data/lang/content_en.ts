@@ -3,41 +3,39 @@ export const siteContent = {
     contact: {
       yt: "https://www.youtube.com/@NullTeams",
       itech: "https://smug-cats.itch.io/",
-      email: "support@smugcat.com",
+      email: "support@smugcats.com",
     },
     hero: {
-      title: "Building the Future, One Vertex at a Time.",
-      subtitle:
-        "High-fidelity, game-ready assets optimized for Godot and beyond.",
-      cta: "Explore Assets",
+      title: "Building the pieces and the puzzle :3",
+      subtitle: "Games, Game-ready assets optimized for Godot and more",
     },
     cards: [
       {
         id: "assets",
-        title: "Asset Quality",
-        tagline: "Battle-Tested Assets",
+        title: "Assets",
+        tagline: "Easy Edit Easy Import",
         content:
-          "Every mesh is optimized for high FPS, featuring PBR workflows, clean topology, and plug-and-play Godot scenes.",
+          "Smug Cat's assets are lightweight, cleanly named, and ready to be imported . Source files are also included, depending on the package",
       },
       {
         id: "mission",
-        title: "Our Mission",
-        tagline: "Engine Agnostic. Developer Focused.",
+        title: "Smug Cat's Mission",
+        tagline: "Built for Godot, Ready for Everything",
         content:
-          "We bridge the gap between imagination and implementation. While we have a deep love for Godot, our assets are engineered for universal compatibility across Unity, Unreal, and custom frameworks.",
+          "Smug Cat bridges the gap between imagination and implementation. While Smug Cat has a deep love for Godot, our assets are designed for universal compatibility across Unity, Unreal, and custom frameworks",
       },
       {
         id: "internal-ip",
-        title: "The Lab",
-        tagline: "Developing Our Own IP",
+        title: "Lab",
+        tagline: "Smug Cat's Own IP",
         content:
-          "We aren't just creators; we're players. We are currently developing an unannounced title to push our assets to their absolute limits.",
+          "Smug Cat's human friend loves playing JRPG games. So, Smug Cat is currently developing an unannounced title while also releaseing assets to gain support and feedback :3",
       },
     ],
     technical: ["Blender", "Godot", "Kirita", "Cascadur", "VScode"],
-    abouts: `Welcome to our studio, an independent creative hub born from a passion for high-fidelity craft and immersive storytelling. Our mission is dual-focused: we build meticulously optimized, "game-ready" assets that empower developers to bring their worlds to life, while simultaneously developing our own line of original, high-quality games. We believe that the best assets are created by those who actually build games, ensuring every 3D model, texture, and mechanic we produce is battle-tested for performance and aesthetic excellence. \n
+    abouts: `Welcome to Smug Cat's, an independent creative hub born from a passion for bridging the gaps and immersive storytelling. Smug Cat mission is dual-focused: Smug Cat builds optimized, game-ready assets that empower developers to bring their worlds to life, while simultaneously developing Smug Cat's own line of originals. \n
 
-Currently, this is a solo venture driven by a commitment to quality over quantity. However, the vision is growing. I am actively looking to evolve from a solo act into a collaborative powerhouse. I am specifically seeking talented collaborators from India to join this journey—with a strong preference for those based in Kolkata to foster a local, tight-knit creative community. Whether you are an artist, a coder, or a designer, if you are passionate about pushing the boundaries of indie development, let’s build something incredible together.`,
+Currently, Smug Cat's is a solo venture driven by a commitment to remove friction in game development so that developers can focus on building their games regardless of their preferred game engine by providing a wide variety of 3D assets and animations. It is being developed by Smug Cat's human friend Adi. However, the vision is growing. Smug Cat is actively looking to evolve from a solo act to a collaborative one. As Smug Cat is from Kolkata, India Smug Cat is actively seeking collaborators based in Kolkata to foster a local, tight-knit creative team. Whether you are an artist, a coder, or a designer, if you want to build something incredible with Smug Cat, feel free to reach out :3`,
     privacy: {
       intro:
         "Smug Cat value privacy. This policy outlines how technical data is handled to ensure this showcase remains functional, secure, and optimized for viewing 3D assets.",

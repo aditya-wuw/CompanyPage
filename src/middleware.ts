@@ -13,13 +13,12 @@ interface RequestAnalytics {
   path: string;
 }
 
-// `context` and `next` are automatically typed
 export const onRequest = defineMiddleware((context, next) => {
   const { request, url, cookies } = context;
   const pathname = url.pathname;
   const isStaticAsset =
-    pathname.includes(".") || // Skips files with extensions (.css, .js, .png)
-    pathname.startsWith("/_astro") || // Skips Astro's internal built scripts
+    pathname.includes(".") || 
+    pathname.startsWith("/_astro") || 
     pathname.startsWith("/favicon");
 
   if (isStaticAsset) {
@@ -62,7 +61,7 @@ export const onRequest = defineMiddleware((context, next) => {
     path: lastPath,
   };
 
-  if (!SavedAnalytics) {
+  if (!SavedAnalytics && user_identifier != "Unknown") {
     SaveAnalytics(Analytics);
     context.cookies.set("Analytics", "saved", {
       path: "/",

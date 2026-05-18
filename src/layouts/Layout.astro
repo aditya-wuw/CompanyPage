@@ -1,11 +1,11 @@
 ---
-import Background from "../components/bg/Background.astro";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import Box from "../components/bg/Box.astro";
-import BGPattern from "../components/bg/BGPattern.astro";
 import BGPatternBlur from "../components/bg/BGPatternBlur.astro";
 import FingerPrint from "../components/FingerPrint.astro";
+
+const pageDescription = "Smug Cat's Games, Game-ready assets optimized for Godot and more" 
 ---
 
 <!doctype html>
@@ -14,9 +14,9 @@ import FingerPrint from "../components/FingerPrint.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Null Team's</title>
+    <link rel="icon" href="/logo/NyaTeam.png" />
+    <meta name="description" content={pageDescription} />
+    <title>Smug Cat's</title>
     <ClientRouter />
   </head>
   <body class="bg-black">
