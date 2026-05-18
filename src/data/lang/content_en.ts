@@ -3,7 +3,7 @@ export const siteContent = {
     contact: {
       yt: "https://www.youtube.com/@NullTeams",
       itech: "https://smug-cats.itch.io/",
-      email: "support@smugcats.com",
+      email: "nullfaceddevbusiness@gmail.com",
     },
     hero: {
       title: "Building the pieces and the puzzle :3",
