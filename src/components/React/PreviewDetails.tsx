@@ -30,10 +30,8 @@ export const PreviewDetails = ({ details }: Props) => {
   const [ProAnims, setProAnims] = useState<Array<String>>();
 
   function filterBaseAndProd() {
-    const Base = details?.anims.filter((i) =>
-      i.toLowerCase().includes("basics"),
-    );
-    const Pro = details?.anims.filter((i) => i.toLowerCase().includes("pro"));
+    const Base = details?.anims.filter((i) => i.toLowerCase().includes("__"));
+    const Pro = details?.anims.filter((i) => !i.toLowerCase().includes("__"));
 
     if (Pro && Base) {
       setProAnims(Pro);
@@ -58,9 +56,9 @@ export const PreviewDetails = ({ details }: Props) => {
           <div>
             <h1 className="pt-5 text-xl flex items-center gap-2">
               <GoDotFill />
-              Base Animations
+              Demo Animations
             </h1>
-            <div className="pt-5 grid md:grid-cols-3 grid-cols-1 gap-2 w-full select-text">
+            <div className="pt-5 grid md:grid-cols-5 grid-cols-2 gap-2 w-full select-text">
               {BaseAnims &&
                 BaseAnims.map((i, index) => (
                   <div className="p-2 bg-black/30 text-white " key={index}>
@@ -70,9 +68,9 @@ export const PreviewDetails = ({ details }: Props) => {
             </div>
             <h1 className="pt-5 text-xl flex items-center gap-2">
               <GoDotFill />
-              Pro Animations
+              Other Animations
             </h1>
-            <div className="pt-5 grid md:grid-cols-3 grid-cols-1 gap-2 w-full select-text">
+            <div className="pt-5 grid md:grid-cols-5 grid-cols-2 gap-2 w-full select-text">
               {ProAnims &&
                 ProAnims.map((i, index) => (
                   <div className="p-2 bg-black/30 text-white " key={index}>
