@@ -20,7 +20,7 @@ export const siteContent = {
       {
         id: "mission",
         title: "Smug Cat's Mission",
-        tagline: "Built for Godot, Ready for Everything",
+        tagline: "Built'n Ready for Everything",
         content:
           "Smug Cat bridges the gap between imagination and implementation. While Smug Cat has a deep love for Godot, our assets are designed for universal compatibility across Unity, Unreal, and custom frameworks",
       },
@@ -32,10 +32,10 @@ export const siteContent = {
           "Smug Cat's human friend loves playing JRPG games. So, Smug Cat is currently developing an unannounced title while also releaseing assets to gain support and feedback :3",
       },
     ],
-    technical: ["Blender", "Godot", "Kirita", "Cascadur", "VScode"],
+    technical: ["Blender", "Godot", "Kirita", "VScode"],
     abouts: `Welcome to Smug Cat's, an independent creative hub born from a passion for bridging the gaps and immersive storytelling. Smug Cat mission is dual-focused: Smug Cat builds optimized, game-ready assets that empower developers to bring their worlds to life, while simultaneously developing Smug Cat's own line of originals. \n
 
-Currently, Smug Cat's is a solo venture driven by a commitment to remove friction in game development so that developers can focus on building their games regardless of their preferred game engine by providing a wide variety of 3D assets and animations. It is being developed by Smug Cat's human friend Adi. However, the vision is growing. Smug Cat is actively looking to evolve from a solo act to a collaborative one. As Smug Cat is from Kolkata, India Smug Cat is actively seeking collaborators based in Kolkata to foster a local, tight-knit creative team. Whether you are an artist, a coder, or a designer, if you want to build something incredible with Smug Cat, feel free to reach out :3`,
+Currently, Smug Cat's is a solo venture driven by a commitment to remove friction in game development so that developers can focus on building their games regardless of their preferred game engine by providing a wide variety of 3D assets and animations. It is being developed by Smug Cat's human friend Adi. However, the vision is growing. Smug Cat is actively looking to evolve from a solo act to a collaborative one. Smug Cat is actively seeking collaborators to foster a tight-knit creative team. Whether you are an artist, a coder, or a designer, if you want to build something incredible with Smug Cat, feel free to reach out :3`,
     privacy: {
       intro:
         "Smug Cat value privacy. This policy outlines how technical data is handled to ensure this showcase remains functional, secure, and optimized for viewing 3D assets.",
@@ -58,7 +58,7 @@ Currently, Smug Cat's is a solo venture driven by a commitment to remove frictio
           id: 2,
           title: "Purpose of Processing",
           description:
-            "This data is processed under the legal basis of **Legitimate Interest** for the following purposes:",
+            "This data is processed under the legal basis of Legitimate Interest for the following purposes:",
           cards: [
             {
               title: "Optimization",

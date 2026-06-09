@@ -1,13 +1,11 @@
 import { SiBlender, SiGodotengine } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
-import { GiPaintBrush } from "react-icons/gi"; // Placeholder for Krita
-import { MdAnimation } from "react-icons/md"; // Placeholder for Cascadeur
+import { GiPaintBrush } from "react-icons/gi";
 
 const tools = [
   { name: "Blender", icon: <SiBlender />, color: "#F5792A" },
   { name: "Godot", icon: <SiGodotengine />, color: "#478CBF" },
   { name: "Krita", icon: <GiPaintBrush />, color: "#31A8FF" },
-  { name: "Cascadeur", icon: <MdAnimation />, color: "#FFFFFF" },
   { name: "VS Code", icon: <VscVscode />, color: "#007ACC" },
 ];
 
