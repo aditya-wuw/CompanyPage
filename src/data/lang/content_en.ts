@@ -22,14 +22,14 @@ export const siteContent = {
         title: "Smug Cat's Mission",
         tagline: "Built'n Ready for Everything",
         content:
-          "Smug Cat bridges the gap between imagination and implementation. While Smug Cat has a deep love for Godot, our assets are designed for universal compatibility across Unity, Unreal, and custom frameworks",
+          "Smug Cat bridges the gap between imagination and implementation. Smug Cat has a deep love for Building and universal compatibility",
       },
       {
         id: "internal-ip",
         title: "Lab",
         tagline: "Smug Cat's Own IP",
         content:
-          "Smug Cat's human friend loves playing JRPG games. So, Smug Cat is currently developing an unannounced title while also releaseing assets to gain support and feedback :3",
+          "Smug Cat will release many projects. Smug Cat is not scared of trying new things and follows continuous learning and continuous delivery.",
       },
     ],
     technical: ["Blender", "Godot", "Kirita", "VScode"],

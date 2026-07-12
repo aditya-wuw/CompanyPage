@@ -1,12 +1,12 @@
 ---
-// export const prerender = false;
+export const prerender = false;
 import ContactCard from "../components/ContactCard.astro";
-// import CompanyUpdates from "../components/core/Home/CompanyUpdates.astro";
+import CompanyUpdates from "../components/core/Home/CompanyUpdates.astro";
 import Hero from "../components/core/Home/Hero.astro";
+import Para from "../components/Para.astro";
+import { siteContent } from "../data/lang/content_en";
 import ScrollDown from "../components/React/ScrollDown";
 import Layout from "../layouts/Layout.astro";
-import LatestReleases from "../components/React/LatestReleases";
-import Moto from "../components/Moto.astro";
 ---
 
 <Layout>
@@ -18,13 +18,21 @@ import Moto from "../components/Moto.astro";
     <!-- latest updates -->
     <div class="h-fit">
       <div class="lg:mt-20 mt-10">
-        <LatestReleases client:load />
+        <CompanyUpdates />
       </div>
       <div class="flex justify-end px-15 max-md:hidden">
         <ScrollDown client:visible />
       </div>
       <!-- Motto -->
-      <Moto />
+      <div class="lg:mt-20 mt-15 flex justify-center">
+        <div class="w-[90%] flex gap-5 max-md:flex-col" id="scroll-target">
+          {
+            siteContent.en.cards.map((i) => (
+              <Para title={i.title} tagline={i.tagline} content={i.content} />
+            ))
+          }
+        </div>
+      </div>
       <div class="mt-10 mb-10 mx-15 flex justify-end">
         <ContactCard />
       </div>

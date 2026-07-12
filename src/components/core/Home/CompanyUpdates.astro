@@ -2,16 +2,16 @@
 import SmallCard from "../../SmallCard.astro";
 import { LuRotate3D } from "react-icons/lu";
 
-interface Props {
-  LatestAsset: LatestAsset;
-}
 
-interface LatestAsset {
-  banner: string;
-  name: string;
-}
+const apiPath = `${import.meta.env.PUBLIC_ASSETS}/info?id=${0}`;
+let LatestAsset;
 
-const { LatestAsset } = Astro.props;
+try {
+  const res = await fetch(apiPath, { method: "GET" });
+  LatestAsset = await res.json();
+} catch (error) {
+  console.error(error);
+}
 ---
 
 <div class="mt-5 flex justify-center">
