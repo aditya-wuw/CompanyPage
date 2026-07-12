@@ -13,12 +13,12 @@ interface RequestAnalytics {
   path: string;
 }
 
-export const onRequest = defineMiddleware((context, next) => {
+export const onRequest = defineMiddleware(async (context, next) => {
   const { request, url, cookies } = context;
   const pathname = url.pathname;
   const isStaticAsset =
-    pathname.includes(".") || 
-    pathname.startsWith("/_astro") || 
+    pathname.includes(".") ||
+    pathname.startsWith("/_astro") ||
     pathname.startsWith("/favicon");
 
   if (isStaticAsset) {
@@ -53,9 +53,9 @@ export const onRequest = defineMiddleware((context, next) => {
     device: isMobile ? "mobile" : "pc",
     details: isMobile
       ? {
-          model: modelName,
-          displaySize: display,
-        }
+        model: modelName,
+        displaySize: display,
+      }
       : undefined,
     browser: agent_details,
     path: lastPath,
