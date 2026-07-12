@@ -1,13 +1,13 @@
 export const siteContent = {
   en: {
     contact: {
-      yt: "https://www.youtube.com/@NullTeams",
+      yt: "https://www.youtube.com/@smug_cats_den",
       itech: "https://smug-cats.itch.io/",
       email: "nullfaceddevbusiness@gmail.com",
     },
     hero: {
       title: "Building the pieces and the puzzle :3",
-      subtitle: "Games, Game-ready assets optimized for Godot and more",
+      subtitle: "Tools, Ready to use Assets and Apps , optimized for Anything",
     },
     cards: [
       {
@@ -33,9 +33,9 @@ export const siteContent = {
       },
     ],
     technical: ["Blender", "Godot", "Kirita", "VScode"],
-    abouts: `Welcome to Smug Cat's, an independent creative hub born from a passion for bridging the gaps and immersive storytelling. Smug Cat mission is dual-focused: Smug Cat builds optimized, game-ready assets that empower developers to bring their worlds to life, while simultaneously developing Smug Cat's own line of originals. \n
+    abouts: `Welcome to Smug Cat's, an independent creative hub born from a passion for bridging the gaps and immersive storytelling. Smug Cat mission is dual-focused: Smug Cat builds optimized, ready to use assets that empower users and developers to bring their worlds to life, while simultaneously developing Smug Cat's own line of originals. \n
 
-Currently, Smug Cat's is a solo venture driven by a commitment to remove friction in game development so that developers can focus on building their games regardless of their preferred game engine by providing a wide variety of 3D assets and animations. It is being developed by Smug Cat's human friend Adi. However, the vision is growing. Smug Cat is actively looking to evolve from a solo act to a collaborative one. Smug Cat is actively seeking collaborators to foster a tight-knit creative team. Whether you are an artist, a coder, or a designer, if you want to build something incredible with Smug Cat, feel free to reach out :3`,
+Currently, Smug Cat's is a solo venture driven by a commitment to remove friction. It is being developed by Smug Cat's human friend Adi. However, the vision is growing.`,
     privacy: {
       intro:
         "Smug Cat value privacy. This policy outlines how technical data is handled to ensure this showcase remains functional, secure, and optimized for viewing 3D assets.",

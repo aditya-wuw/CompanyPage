@@ -1,12 +1,21 @@
-import { SiBlender, SiGodotengine } from "react-icons/si";
+import {
+  SiBlender,
+  SiDavinciresolve,
+  SiGodotengine,
+  SiTauri,
+} from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { GiPaintBrush } from "react-icons/gi";
+import { BsTypescript } from "react-icons/bs";
 
 const tools = [
+  { name: "VS Code", icon: <VscVscode />, color: "#007ACC" },
+  { name: "TypeScript", icon: <BsTypescript />, color: "#007ACC" },
+  { name: "Tauri", icon: <SiTauri />, color: "#007ACC" },
   { name: "Blender", icon: <SiBlender />, color: "#F5792A" },
   { name: "Godot", icon: <SiGodotengine />, color: "#478CBF" },
   { name: "Krita", icon: <GiPaintBrush />, color: "#31A8FF" },
-  { name: "VS Code", icon: <VscVscode />, color: "#007ACC" },
+  { name: "Davinchi", icon: <SiDavinciresolve />, color: "#007ACC" },
 ];
 
 export default function TechStack() {

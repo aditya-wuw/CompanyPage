@@ -1,18 +1,7 @@
----
-import Foot from "../Foot.astro";
-import Navbar from "../React/Navbar.tsx";
----
-
-<div
-  class="max-w-7xl mx-auto lg:px-8 flex justify-center items-center w-full h-full overflow-hidden"
->
-  <div
-    class="relative z-10 border border-gray-100/10 bg-gray-100/5 backdrop-blur-[6px] md:w-[98%] w-[95%] h-[96%] rounded-md shadow-[0_0_0_2px_rgba(255,0,255,0.03),0_0_20px_rgba(255,255,255,0.1)]"
-  >
-    <Navbar client:load />
-    <div class="h-[84%] mt-2">
+<div class="max-w-7xl mx-auto lg:px-8 flex justify-center items-center w-full">
+  <div class="relative z-10 md:w-[98%] w-[95%] h-[96%] rounded-md">
+    <div class="h-[90%] mt-2">
       <slot />
     </div>
-    <Foot />
   </div>
 </div>

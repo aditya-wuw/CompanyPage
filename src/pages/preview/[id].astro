@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import BackBTN from "../../components/Buttons/BackBTN.astro";
-import PreviewToggle from "../../components/React/PreviewToggle";
+import PreviewFrame from "../../components/React/PreviewFrame";
 import Loader from "../../components/Loader.astro";
+import NoNavLayout from "../../layouts/NoNavLayout.astro";
 export const prerender = false;
 const { id } = Astro.params;
 
@@ -38,16 +38,16 @@ try {
 }
 ---
 
-<Layout>
-  <main class="mx-5">
+<NoNavLayout>
+  <main class="mx-5 mt-10 relative z-10">
     <BackBTN />
-    <PreviewToggle asset={asset} server:defer client:load>
+    <PreviewFrame asset={asset} server:defer client:load>
       <div
         slot="fallback"
         class="w-full h-[70%] flex justify-center items-center"
       >
         <Loader />
       </div>
-    </PreviewToggle>
+    </PreviewFrame>
   </main>
-</Layout>
+</NoNavLayout>

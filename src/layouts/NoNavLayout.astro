@@ -1,11 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
-import Box from "../components/bg/Box.astro";
-import FingerPrint from "../components/FingerPrint.astro";
 import Foot from "../components/Foot.astro";
-import Navbar from "../components/React/Navbar";
-
 const pageDescription = "Smug Cat's tools, assets and Jounry";
 ---
 
@@ -25,13 +21,9 @@ const pageDescription = "Smug Cat's tools, assets and Jounry";
       class="bg-purple-950/13 blur-3xl rounded-full w-full h-full absolute z-1"
     >
     </div>
-    <Box>
-      <Navbar client:load />
-      <div class="mt-4">
-        <slot />
-      </div>
-      <Foot />
-    </Box>
+    <div class="max-w-6xl mx-auto">
+      <slot />
+    </div>
     <style>
       html,
       body {
@@ -40,6 +32,6 @@ const pageDescription = "Smug Cat's tools, assets and Jounry";
         height: 100%;
       }
     </style>
-    <FingerPrint />
+    <Foot />
   </body>
 </html>

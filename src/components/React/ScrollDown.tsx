@@ -1,4 +1,3 @@
-import React from "react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 

@@ -8,7 +8,11 @@ import { BsYoutube } from "react-icons/bs";
   <div
     class="bg-white w-fit p-2 rounded-2xl hover:scale-125 hover:rotate-6 duration-300 ease-in-out"
   >
-    <a href={siteContent.en.contact.itech} target="_blank">
+    <a
+      aria-label={`see ${siteContent.en.contact.itech}`}
+      href={siteContent.en.contact.itech}
+      target="_blank"
+    >
       <img
         src="https://static.itch.io/images/logo-black-new.svg"
         width={100}
@@ -20,13 +24,21 @@ import { BsYoutube } from "react-icons/bs";
   <div
     class="text-white hover:scale-125 hover:-rotate-20 duration-300 ease-in-out"
   >
-    <a target="_blank" href={siteContent.en.contact.yt}> <BsYoutube /></a>
+    <a
+      aria-label={`see ${siteContent.en.contact.yt}`}
+      target="_blank"
+      href={siteContent.en.contact.yt}
+    >
+      <BsYoutube /></a
+    >
   </div>
   <div
     class="text-white hover:scale-125 hover:rotate-20 duration-300 ease-in-out"
   >
-    <a target="_blank" href={`mailto:${siteContent.en.contact.email}`}
-      ><MdEmail /></a
+    <a
+      target="_blank"
+      aria-label={`see ${siteContent.en.contact.email}`}
+      href={`mailto:${siteContent.en.contact.email}`}><MdEmail /></a
     >
   </div>
 </div>

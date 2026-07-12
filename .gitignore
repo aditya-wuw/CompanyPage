@@ -27,3 +27,4 @@ src/assets/gm/*
 # Local Netlify folder
 .netlify
 .vercel
+.env*

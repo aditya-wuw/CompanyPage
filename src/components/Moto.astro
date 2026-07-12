@@ -1,0 +1,14 @@
+---
+import { siteContent } from "../data/lang/content_en";
+import Para from "./Para.astro";
+---
+
+<div class="lg:mt-20 mt-15 flex justify-center">
+  <div class="w-[90%] flex gap-5 max-md:flex-col" id="scroll-target">
+    {
+      siteContent.en.cards.map((i) => (
+        <Para title={i.title} tagline={i.tagline} content={i.content} />
+      ))
+    }
+  </div>
+</div>

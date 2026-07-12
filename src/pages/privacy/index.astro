@@ -1,18 +1,23 @@
 ---
 export const prerender = false;
+import BackBTN from "../../components/Buttons/BackBTN.astro";
 import { siteContent } from "../../data/lang/content_en";
-import Layout from "../../layouts/Layout.astro";
+// import Layout from "../../layouts/Layout.astro";
+import NoNavLayout from "../../layouts/NoNavLayout.astro";
 
 const LastUpdate = "May 14";
 const t = siteContent.en.privacy;
 const email = siteContent.en.contact.email;
 ---
 
-<Layout title="Privacy Policy">
-  <main class="text-slate-200 py-10 px-6 sm:px-8 h-full overflow-y-auto">
+<NoNavLayout title="Privacy Policy">
+  <main class="text-slate-200 py-10 px-6 sm:px-8 overflow-y-scroll">
     <div class="max-w-3xl mx-auto">
       <!-- Header -->
-      <header class="border-b border-white/20 pb-8 mb-12">
+      <div class="fixed top-5 z-10">
+        <BackBTN />
+      </div>
+      <header class="border-b border-white/20 pb-8 mt-10 mb-12">
         <h1 class="text-4xl font-extrabold text-white mb-4">Privacy Policy</h1>
         <p class="text-slate-400 text-sm">
           Last Updated: {LastUpdate}
@@ -132,4 +137,4 @@ const email = siteContent.en.contact.email;
       </div>
     </div>
   </main>
-</Layout>
+</NoNavLayout>
