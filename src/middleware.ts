@@ -62,7 +62,7 @@ export const onRequest = defineMiddleware((context, next) => {
   };
 
   if (!SavedAnalytics && user_identifier != "Unknown") {
-    SaveAnalytics(Analytics);
+    await SaveAnalytics(Analytics);
     context.cookies.set("Analytics", "saved", {
       path: "/",
       maxAge: 60 * 60 * 24,
