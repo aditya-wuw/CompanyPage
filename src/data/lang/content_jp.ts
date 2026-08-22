@@ -34,5 +34,5 @@ export const siteContent = {
       formats: "Native support for .tscn, .gltf, and .blend.",
       modular: "Snap-to-grid kits for rapid prototyping.",
     },
-  }
+  },
 };

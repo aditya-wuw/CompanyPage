@@ -53,9 +53,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
     device: isMobile ? "mobile" : "pc",
     details: isMobile
       ? {
-        model: modelName,
-        displaySize: display,
-      }
+          model: modelName,
+          displaySize: display,
+        }
       : undefined,
     browser: agent_details,
     path: lastPath,
